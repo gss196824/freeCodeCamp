@@ -86,7 +86,7 @@ type ReducerPayload<T extends AppActionTypes> =
       }
     : ReducerBase<T>;
 
-// Switch reducer exported to Redux combineReducers
+// Cambia el reductor importado por Redux combineReducers
 export const reducer = (
   state: AppState = initialState,
   action: ReducerPayload<AppActionTypes>
@@ -105,21 +105,21 @@ export const reducer = (
 Dentro de un componente, importa las acciones y los selectores necesarios.
 
 ```tsx
-// Add type definition
+// Añada el tipo de definición
 interface MyComponentProps {
   actionFunction: typeof actionFunction;
 }
-// Connect to Redux store
+// Conecta a Redux store
 const mapDispatchToProps = {
   actionFunction
 };
-// Example React Component connected to store
+// Ejemplo del componente de React conectado a store
 const MyComponent = ({ actionFunction }: MyComponentProps): JSX.Element => {
   const handleClick = () => {
-    // Dispatch function
+    // Envío de la función
     actionFunction();
   };
-  return <button onClick={handleClick}>freeCodeCamp is awesome!</button>;
+  Devuelve <button onClick={handleClick}>freeCodeCamp is awesome!</button>;
 };
 
 export default connect(null, mapDispatchToProps)(MyComponent);
